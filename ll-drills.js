@@ -1,6 +1,7 @@
 'use strict';
 
-const LinkedList = require('./linked-list');
+const {LinkedList} = require('./linked-list');
+const {display, size, isEmpty, findPrevious, findLast} = require('./linked-list');
 
 function main(){
   let SLL = new LinkedList();
@@ -33,6 +34,7 @@ function main(){
   // output: Head -> Apollo -> Boomer -> Helo -> Husker -> Starbuck -> Tauhida -> null, console.log of 'Item not found',
   SLL.remove('Squirrel');
   console.log('At Squirrel =>', SLL.find('Squirrel'));
+  // remove => O(n) because it has to iterate through the list to find the item to be removed
 
 
   // insert before a targeted list item
@@ -53,7 +55,7 @@ function main(){
   // insertAfter -> O(n), inserts at targeted position of the linked list and has to iterate through list to find target
 
 
-  // insert at targeted position item
+  // insert at targeted position
   // input: 'Kat', 3
   // output: Head -> Apollo -> Athena -> Boomer -> Kat -> Helo -> Hotdog -> Husker -> Starbuck -> Tauhida -> null
   SLL.insertAt('Kat', 3);
@@ -68,8 +70,13 @@ function main(){
   SLL.remove('Tauhida');
   console.log('At Tauhida =>', SLL.find('Tauhida'));
   console.log('At Starbuck =>', SLL.find('Starbuck'));
+  // remove => O(n) because it has to iterate through the list to find the item to be removed
   
-  
+  display(SLL);
+  size(SLL);
+  isEmpty(SLL);
+  findPrevious(SLL, 'Kat');
+  findLast(SLL);
 
 }
 main();

@@ -117,4 +117,63 @@ class LinkedList{
   }
 }
 
-module.exports = LinkedList;
+function display(linkedList) {
+  let currNode = linkedList.head;
+  let position = 0;
+  
+  while(currNode !== null){
+    console.log('Position: '+position+',', currNode.value);
+    currNode = currNode.next;
+    position++;
+  }
+}
+
+function size(linkedList){
+  let currNode = linkedList.head;
+  let length = 0;
+  while(currNode !== null){
+    currNode = currNode.next;
+    length++;
+  }
+  console.log('This linked list has ' + length +' nodes');
+}
+
+function isEmpty(linkedList){
+  let currNode = linkedList.head;
+  if(currNode === null){
+    console.log('This linked list is empty');
+    return true;
+  }
+  console.log('This linked list is NOT empty');
+  return false;
+}
+
+function findPrevious(linkedList, target){
+  let currNode = linkedList.head;
+  let prevNode = linkedList.head;
+  let position = 0;
+
+  while((currNode !==null) && (currNode.value !== target)){
+    prevNode = currNode;
+    currNode = currNode.next;
+    position++;
+    if(currNode.value === target){
+      console.log('The node before ' +'-'+target+'-'+ ' is '+'='+prevNode.value+'='+' located at '+ 'position '+position);
+    }
+  }
+}
+
+function findLast(linkedList){
+  let currNode = linkedList.head;
+  let position = 0;
+  while(currNode !==null){
+    currNode = currNode.next;
+    position++;
+    if(currNode.next === null){
+      console.log('The last node is '+currNode.value+' at position '+position);
+      break;
+    }
+  }
+}
+
+module.exports = {LinkedList, display, size, isEmpty, findPrevious, findLast};
