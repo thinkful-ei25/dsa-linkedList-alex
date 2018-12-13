@@ -26,10 +26,11 @@ function WhatDoesThisProgramDo(lst){
 //input:  HEAD => A -> B -> C -> D -> null    <----  LL
 //output: HEAD => D -> C -> B -> A -> null
 
-//Find last item in linked list(item.next === null)
-//Locate previous node and direct next of last item to previous node
-//Assign HEAD to last node
-//Locate previous nodes and direct item to previous node until null
+//Create three temp nodes to track prev, current, after
+//Start values: prev: null, current: HEAD, after: current.next
+//Reassign current.next to prev (Repeat)
+//Locate final node when after = null
+//Reassign HEAD to last node
 
 
 function reverseList(list){
@@ -42,8 +43,41 @@ function reverseList(list){
     current.next = previous;
     current = after;
     after = current.next;
-    if(after.next === null){
+    if(after === null){
       current = list.head;
+    }
+  }
+}
+
+
+//third from the end
+//input:  HEAD => A -> B -> C -> D -> E -> F -> null    <----  LL
+//output: D
+
+//Create temp nodes to track current, nextNode, secondNextNode
+//Start values: current = HEAD, nextNode = current.next, secondNextNode = nextNode.next
+//When thirdNextNode is null, return value of current node
+//The nextNode is a place holder and to check for lists that don't have length more than 3
+
+function thirdFromTheEnd(list){
+  let current = list.head;
+  let nextNode = current.next;
+  let secondNextNode = nextNode.next;
+
+  if(secondNextNode === null){
+    return current.value;
+  }
+  else if(secondNextNode === null && nextNode === null){
+    return new Error('List does not contain 3 items');
+  }
+
+  while(nextNode !== null){
+    current = nextNode;
+    nextNode = current.next;
+    secondNextNode = nextNode.next;
+    
+    if(secondNextNode === null){
+      return current.value;
     }
   }
 }
