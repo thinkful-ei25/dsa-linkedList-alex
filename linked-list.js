@@ -136,6 +136,7 @@ function size(linkedList){
     length++;
   }
   console.log('This linked list has ' + length +' nodes');
+  return length;
 }
 
 function isEmpty(linkedList){
@@ -159,6 +160,7 @@ function findPrevious(linkedList, target){
     position++;
     if(currNode.value === target){
       console.log('The node before ' +'-'+target+'-'+ ' is '+'='+prevNode.value+'='+' located at '+ 'position '+position);
+      return prevNode.value;
     }
   }
 }
@@ -171,7 +173,7 @@ function findLast(linkedList){
     position++;
     if(currNode.next === null){
       console.log('The last node is '+currNode.value+' at position '+position);
-      break;
+      return currNode.value;
     }
   }
 }

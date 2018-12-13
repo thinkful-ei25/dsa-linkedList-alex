@@ -77,6 +77,5 @@ function main(){
   isEmpty(SLL);
   findPrevious(SLL, 'Kat');
   findLast(SLL);
-
 }
 main();
