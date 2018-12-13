@@ -16,6 +16,36 @@ class LinkedList{
     this.head = new _Node(item, this.head);
   }
 
+  insertBefore(item, target){
+    let currNode = this.head;
+    let prevNode = this.head;
+
+    while((currNode !==null) && (currNode.value !== target)){
+      prevNode = currNode;
+      currNode = currNode.next;
+
+      if(currNode.value === target){
+        let insertNode = new _Node(item, prevNode.next);
+        prevNode.next = insertNode;
+      }
+    }
+  }
+
+  insertAfter(item, target){
+    let currNode = this.head;
+    let prevNode = this.head;
+
+    while((prevNode !==null) && (prevNode.value !== target)){
+      prevNode = currNode;
+      currNode = currNode.next;
+
+      if(prevNode.value === target){
+        let insertNode = new _Node(item, prevNode.next);
+        prevNode.next = insertNode;
+      }
+    }
+  }
+
   insertLast(item){
     if(this.head === null){
       this.insertFirst(item);
@@ -27,6 +57,24 @@ class LinkedList{
       }
       tempNode.next = new _Node(item, null);
     }
+  }
+
+  insertAt(item, targetPos){
+    let indexPos = 0;
+    let currNode = this.head;
+    let prevNode = this.head;
+
+    while((prevNode !==null) && (targetPos !== (indexPos))){
+      prevNode = currNode;
+      currNode = currNode.next;
+      indexPos++;
+
+      if(targetPos === (indexPos)){
+        let insertNode = new _Node(item, prevNode.next);
+        prevNode.next = insertNode;
+      }
+    }
+
   }
 
   find(item){

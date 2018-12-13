@@ -34,5 +34,42 @@ function main(){
   SLL.remove('Squirrel');
   console.log('At Squirrel =>', SLL.find('Squirrel'));
 
+
+  // insert before a targeted list item
+  // input: 'Athena'
+  // output: Head -> Apollo -> Athena -> Boomer -> Helo -> Husker -> Starbuck -> Tauhida -> null
+  SLL.insertBefore('Athena', 'Boomer');
+  console.log('At HEAD =>', SLL.find('Apollo'));
+  console.log('At Athena =>', SLL.find('Athena'));
+  // insertBefore -> O(n), inserts before a targeted item of the linked list and has to iterate through list to find target
+
+
+  // insert after a targeted list item
+  // input: 'Hotdog'
+  // output: Head -> Apollo -> Athena -> Boomer -> Helo -> Hotdog -> Husker -> Starbuck -> Tauhida -> null
+  SLL.insertAfter('Hotdog', 'Helo');
+  console.log('At Helo =>', SLL.find('Helo'));
+  console.log('At Hotdog =>', SLL.find('Hotdog'));
+  // insertAfter -> O(n), inserts at targeted position of the linked list and has to iterate through list to find target
+
+
+  // insert at targeted position item
+  // input: 'Kat', 3
+  // output: Head -> Apollo -> Athena -> Boomer -> Kat -> Helo -> Hotdog -> Husker -> Starbuck -> Tauhida -> null
+  SLL.insertAt('Kat', 3);
+  console.log('At Kat =>', SLL.find('Kat'));
+  console.log('At Boomer =>', SLL.find('Boomer'));
+  // insertAt -> O(n), inserts at targeted position of the linked list and has to iterate through list to find target
+  
+
+  // delete item from list
+  // input: 'Tauhida'
+  // output: Head -> Apollo -> Athena -> Boomer -> Kat -> Helo -> Hotdog -> Husker -> Starbuck -> null
+  SLL.remove('Tauhida');
+  console.log('At Tauhida =>', SLL.find('Tauhida'));
+  console.log('At Starbuck =>', SLL.find('Starbuck'));
+  
+  
+
 }
 main();
